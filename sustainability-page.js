@@ -1,0 +1,16 @@
+document.title = 'Sustainability | Skylink Corridors';
+document.querySelector('meta[name="description"]').content = "Explore Skylink Corridors' commitments to responsible and sustainable logistics.";
+
+const sustainabilityItems = [
+  {title:'Fleet Optimization',text:'We continuously optimize fleet utilization and routes to reduce empty miles, cutting fuel consumption and CO₂ emissions across our network.',icon:'<svg viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>'},
+  {title:'Efficient Route Planning',text:'AI-powered route optimization reduces total kilometers driven while improving delivery performance — fewer miles, same great service.',icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>'},
+  {title:'Paperless Logistics',text:'Digital documentation, electronic proof of delivery, and cloud-based systems eliminate paper waste across our operations.',icon:'<svg viewBox="0 0 24 24"><path d="m7 7 3-3 3 3M10 4v7M17 9l3 1-1 4M20 10l-6 3M8 19l-1-3-4 1M7 16l5 4"/><path d="M5 11a7 7 0 0 1 2-4M17 17a7 7 0 0 1-5 3M19 14a7 7 0 0 1-2 3"/></svg>'},
+  {title:'Safe Transportation Practices',text:'Driver training, vehicle maintenance programs, and safety protocols reduce accidents and protect people, cargo, and the environment.',icon:'<svg viewBox="0 0 24 24"><path d="M20 4c-8 0-14 4-14 11 0 2 1 4 2 5 1-6 5-9 10-11"/><path d="M5 20c3-2 7-3 12-3"/></svg>'},
+  {title:'Resource-Efficient Warehousing',text:'Energy-efficient lighting, optimized space utilization, and waste reduction programs make our warehouses more sustainable.',icon:'<svg viewBox="0 0 24 24"><path d="M4 20V9M9 20V4M14 20v-7M19 20V7M3 20h18"/></svg>'},
+  {title:'Continuous Improvement',text:'We track our environmental impact metrics and set annual improvement targets as part of our commitment to responsible operations.',icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>'}
+];
+
+document.querySelector('main').innerHTML = `
+  <section class="sustain-page-hero"><img src="/assets/sustainability.jpg" alt="Sustainable logistics"><div class="sustain-page-overlay"></div><div class="container sustain-page-content"><div class="eyebrow">Sustainability</div><h1>Building Responsible Supply Chains</h1><p>We believe sustainable logistics creates lasting value for customers, communities, and the environment.</p></div></section>
+  <section class="commitments-section"><div class="container"><div class="commitments-head"><h2>Our Sustainability Commitments</h2><p>Every decision we make considers its environmental and social impact. Here is how we are<br>building more responsible supply chains.</p></div><div class="commitments-grid">${sustainabilityItems.map(item=>`<article class="commitment-card"><i>${item.icon}</i><h3>${item.title}</h3><p>${item.text}</p></article>`).join('')}</div></div></section>
+  <section class="sustain-metrics"><div class="container sustain-metrics-grid"><article><strong>15%</strong><span>CO₂ Reduction Target by 2026</span></article><article><strong>80%</strong><span>Paperless Operations Achieved</span></article><article><strong>100%</strong><span>Driver Safety Training Completion</span></article></div></section>`;

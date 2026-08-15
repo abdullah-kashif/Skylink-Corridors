@@ -1,0 +1,17 @@
+document.title = 'Our Portfolio | Skylink Corridors';
+document.querySelector('meta[name="description"]').content = 'Real logistics solutions and measurable results delivered by Skylink Corridors.';
+
+const projects = [
+  {badge:'Cross-Border Logistics',image:'cross-border.jpg',title:'Afghanistan Humanitarian Supply Chain',description:'Established a reliable humanitarian logistics corridor supplying essential goods to Afghanistan, coordinating with NGOs and government agencies across complex border protocols.',tags:['Cross-Border','Humanitarian','Multi-Modal']},
+  {badge:'E-Commerce Fulfillment',image:'ecommerce.jpg',title:'National E-Commerce Fulfillment Network',description:'Built a nationwide fulfillment network for a major Pakistani e-commerce platform, enabling same-day delivery in Karachi, Lahore, and Islamabad with 99.2% on-time performance.',tags:['E-Commerce','Last Mile','Technology']},
+  {badge:'Cold Chain',image:'warehouse.jpg',title:'Pharmaceutical Cold Chain Network',description:'Designed and operated a controlled pharmaceutical cold chain connecting manufacturers in Karachi to distributors and hospitals across Pakistan.',tags:['Healthcare','Cold Chain','Compliance']},
+  {badge:'Dedicated Fleet',image:'transport.jpg',title:'FMCG Dedicated Distribution Program',description:'Provided a leading FMCG brand with a fully managed dedicated fleet program, reducing logistics costs while improving delivery reliability and operational visibility.',tags:['FMCG','Dedicated Fleet','Cost Reduction']},
+  {badge:'Warehousing',image:'sustainability.jpg',title:'Retail Distribution Center Operations',description:'Managed a large retail distribution operation in Karachi, handling inbound receiving, inventory management, pick-and-pack operations, and outbound distribution.',tags:['Warehousing','Retail','Distribution']},
+  {badge:'International Freight',image:'forwarding.jpg',title:'Textile Export Logistics Program',description:'Streamlined international export logistics for a major textile group, optimizing ocean freight routing and customs coordination to reduce lead times and cost.',tags:['International','Exports','Customs']}
+];
+
+const portfolioMain = document.querySelector('main');
+portfolioMain.innerHTML = `
+  <section class="portfolio-hero"><img src="/assets/about.jpg" alt="Skylink Corridors logistics portfolio"><div class="portfolio-hero-overlay"></div><div class="container portfolio-hero-content"><div class="eyebrow">About Us</div><h1>Our Portfolio</h1><p>Real solutions. Real results. Explore a selection of the logistics programs we have designed and executed for our customers.</p></div></section>
+  <section class="portfolio-projects"><div class="container portfolio-grid">${projects.map(project => `<article class="portfolio-card"><div class="portfolio-media"><img src="/assets/${project.image}" alt="${project.title}"><span>${project.badge}</span></div><div class="portfolio-body"><h2>${project.title}</h2><p>${project.description}</p><div class="portfolio-tags">${project.tags.map(tag=>`<span>${tag}</span>`).join('')}</div></div></article>`).join('')}</div></section>
+  <section class="portfolio-cta"><div class="container"><h2>Ready to Add Your Success Story?</h2><p>Partner with Skylink Corridors and let us build a logistics solution designed<br>around your business.</p><a class="btn btn-primary" href="/contact/">Start the Conversation <span>→</span></a></div></section>`;
