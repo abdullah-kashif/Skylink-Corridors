@@ -85,7 +85,7 @@ if (detailCta) {
 // Shared motion system: reveal sections as they enter the viewport and stagger groups.
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealSelector = [
-  '.section-head', '.about .two-col > *', '.service-card', '.industry-grid a',
+  '.section-head', '.about .two-col > *', '.service-card', '.service-slide', '.industry-grid a',
   '.why-grid article', '.sustainability .two-col > *', '.contact-details > *',
   '.quote-card', '.benefit-grid article', '.job-card', '.detail-grid > *',
   '.offer-list article', '.detail-related .container > *', '.detail-cta-inner > *',
@@ -125,6 +125,10 @@ const animateStat = (element) => {
   if (element.dataset.counted === 'true') return;
   element.dataset.counted = 'true';
   const original = element.textContent.trim();
+  if (original.includes('/')) {
+    element.textContent = original;
+    return;
+  }
   const target = Number.parseInt(original.replace(/\D/g, ''), 10);
   const suffix = original.replace(/[\d,]/g, '');
   if (!Number.isFinite(target) || reduceMotion) return;
@@ -151,4 +155,58 @@ if (statNumbers.length) {
     }, { threshold: 0.35 });
     statsObserver.observe(document.querySelector('.stats'));
   }
+}
+
+// Services Pictorial Slider
+const servicesSlider = document.querySelector('#services-slider');
+const sliderPrev = document.querySelector('.slider-prev');
+const sliderNext = document.querySelector('.slider-next');
+const sliderDotsContainer = document.querySelector('#slider-dots');
+
+if (servicesSlider && sliderPrev && sliderNext) {
+  const slides = servicesSlider.querySelectorAll('.service-slide');
+  const slideCount = slides.length;
+
+  const getSlideStep = () => {
+    const firstSlide = slides[0];
+    if (!firstSlide) return 340;
+    return firstSlide.getBoundingClientRect().width + 24;
+  };
+
+  if (sliderDotsContainer && slideCount > 0) {
+    sliderDotsContainer.innerHTML = '';
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = `slider-dot ${i === 0 ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => {
+        servicesSlider.scrollTo({ left: i * getSlideStep(), behavior: 'smooth' });
+      });
+      sliderDotsContainer.appendChild(dot);
+    });
+  }
+
+  const updateDots = () => {
+    if (!sliderDotsContainer) return;
+    const step = getSlideStep();
+    const activeIndex = Math.min(Math.round(servicesSlider.scrollLeft / step), slideCount - 1);
+    const dots = sliderDotsContainer.querySelectorAll('.slider-dot');
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === activeIndex);
+    });
+  };
+
+  let scrollTimeout;
+  servicesSlider.addEventListener('scroll', () => {
+    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+    scrollTimeout = requestAnimationFrame(updateDots);
+  }, { passive: true });
+
+  sliderNext.addEventListener('click', () => {
+    servicesSlider.scrollBy({ left: getSlideStep(), behavior: 'smooth' });
+  });
+
+  sliderPrev.addEventListener('click', () => {
+    servicesSlider.scrollBy({ left: -getSlideStep(), behavior: 'smooth' });
+  });
 }
