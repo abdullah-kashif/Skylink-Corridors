@@ -40,24 +40,28 @@
         <div class="nav-item has-menu">
           <button class="nav-trigger" aria-expanded="false">Industries <span>⌄</span></button>
           <div class="dropdown mega-menu industries-menu">
-            <a href="/industries/retail/">Retail Logistics</a><a href="/industries/private-equity/">Private Equity Logistics</a>
-            <a href="/industries/ecommerce/">E-Commerce Logistics</a><a href="/industries/healthcare/">Healthcare Logistics</a>
-            <a href="/industries/cpg/">CPG Logistics</a><a href="/industries/food-beverage/">Food &amp; Beverage Logistics</a>
-            <a href="/industries/durable-goods/">Durable Goods Logistics</a><a href="/industries/building/">Building Products &amp; Materials Logistics</a>
-            <a href="/industries/automotive/">Automotive Logistics</a><a href="/industries/glass/">Glass Logistics</a>
-            <a href="/industries/paper/">Paper Logistics</a><a href="/industries/wine-spirits/">Wine, Spirits and Breweries Logistics</a>
-            <a href="/industries/3pl">Asset Solutions for 3PLs</a><a href="/industries/chemical/">Chemical Logistics</a>
+            <a href="/industries/retail/">Retail Logistics</a><a href="/industries/ecommerce/">E-Commerce Logistics</a>
+            <a href="/industries/cpg/">Consumer Packaged Goods (CPG) Logistics</a><a href="/industries/durable-goods/">Durable Goods Logistics</a>
+            <a href="/industries/automotive/">Automotive Logistics</a><a href="/industries/paper/">Paper &amp; Packaging Logistics</a>
+            <a href="/industries/3pl/">3PL Transportation Capacity Solutions</a><a href="/industries/chemical/">Chemical Logistics</a>
+            <a href="/industries/private-equity/">Private Equity &amp; Portfolio Logistics</a><a href="/industries/healthcare/">Healthcare Logistics</a>
+            <a href="/industries/food-beverage/">Food &amp; Beverage Logistics</a><a href="/industries/building/">Building Products &amp; Materials Logistics</a>
+            <a href="/industries/glass/">Glass Logistics</a><a href="/industries/wine-spirits/">Wine, Spirits &amp; Brewery Logistics</a>
           </div>
         </div>
         <a class="nav-link" href="/careers/">Careers</a><a class="nav-link" href="/contact/">Contact</a>
       </div>
-      <a class="btn quote-btn" href="/contact/">Request a Quote</a>
+      <a class="btn btn-primary quote-btn" href="/contact/">Request a Quote</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <img class="hero-bg" src="assets/hero.jpg" alt="Skylink Corridors — Integrated Logistics &amp; Supply Chain Solutions" fetchpriority="high">
+      <div class="hero-video-wrap" aria-hidden="true">
+        <video class="hero-bg hero-video" autoplay muted loop playsinline preload="auto" poster="assets/hero.jpg">
+          <source src="assets/Hero%20Section.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero-shade"></div>
       <div class="container hero-content">
         <h1>Your Trusted Partner in<br>Integrated Logistics &amp;<br><em>Supply Chain</em> Solutions</h1>
@@ -93,17 +97,12 @@
             <h2>End-to-End Logistics. One Trusted Partner.</h2>
             <p>Our comprehensive portfolio of logistics services is designed to simplify complex supply chains while improving visibility, efficiency, and customer satisfaction.</p>
           </div>
-          <div class="services-slider-nav" aria-label="Slider navigation">
-            <button class="slider-btn slider-prev" aria-label="Previous slide">
-              <svg viewBox="0 0 24 24" fill="none"><path d="m15 18-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <button class="slider-btn slider-next" aria-label="Next slide">
-              <svg viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
         </div>
 
         <div class="services-slider-wrapper">
+          <button type="button" class="slider-btn slider-prev" aria-label="Previous services" aria-controls="services-slider">
+            <svg viewBox="0 0 24 24" fill="none"><path d="m15 18-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
           <div class="services-slider-track" id="services-slider" tabindex="0" role="region" aria-label="Logistics services slider">
             <article class="service-slide">
               <a class="slide-media" href="/services/intermodal/" tabindex="-1">
@@ -166,7 +165,12 @@
             </article>
           </div>
 
-          <div class="slider-dots" id="slider-dots" aria-label="Slider indicators"></div>
+          <button type="button" class="slider-btn slider-next" aria-label="Next services" aria-controls="services-slider">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="slider-controls">
+            <div class="slider-dots" id="slider-dots" aria-label="Slider indicators"></div>
+          </div>
         </div>
 
         <div class="services-footer-cta">
@@ -291,7 +295,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="/" class="footer-logo"><img src="assets/Skylink Corridor logo New.png" alt="Skylink Corridor"></a>
-        <p class="footer-desc"><strong>Skylink Corridor</strong><br>Integrated Logistics &bull; Transportation &bull; Warehousing &bull; Freight Forwarding &bull; Cross-Border Logistics &bull; Supply Chain Solutions</p>
+        <p class="footer-desc">Integrated Logistics &bull; Transportation &bull; Warehousing &bull; Freight Forwarding &bull; Cross-Border Logistics &bull; Supply Chain Solutions</p>
         <div class="footer-social-section">
           <div class="footer-subhead">Follow Us</div>
           <div class="social-links" aria-label="Social media">

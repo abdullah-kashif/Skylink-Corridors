@@ -1,3 +1,17 @@
+// Fixed header on scroll
+const siteHeader = document.querySelector('.site-header');
+if (siteHeader) {
+  const handleHeaderScroll = () => {
+    if (window.scrollY > 20) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+  };
+  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  handleHeaderScroll();
+}
+
 const menuToggle = document.querySelector('.menu-toggle');
 const navWrap = document.querySelector('.nav-wrap');
 const navItems = document.querySelectorAll('.has-menu');
@@ -6,10 +20,12 @@ document.querySelectorAll('img[alt="Skylink Corridors"]').forEach((logo) => {
   logo.src = '/assets/Skylink%20Corridor%20logo%20New.png';
 });
 
-menuToggle.addEventListener('click', () => {
-  const open = navWrap.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(open));
-});
+if (menuToggle && navWrap) {
+  menuToggle.addEventListener('click', () => {
+    const open = navWrap.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+  });
+}
 
 navItems.forEach((item) => {
   const trigger = item.querySelector('.nav-trigger');
@@ -85,7 +101,7 @@ if (detailCta) {
 // Shared motion system: reveal sections as they enter the viewport and stagger groups.
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealSelector = [
-  '.section-head', '.about .two-col > *', '.service-card', '.service-slide', '.industry-grid a',
+  '.section-head', '.about .two-col > *', '.service-card', '.industry-grid a',
   '.why-grid article', '.sustainability .two-col > *', '.contact-details > *',
   '.quote-card', '.benefit-grid article', '.job-card', '.detail-grid > *',
   '.offer-list article', '.detail-related .container > *', '.detail-cta-inner > *',
@@ -164,49 +180,110 @@ const sliderNext = document.querySelector('.slider-next');
 const sliderDotsContainer = document.querySelector('#slider-dots');
 
 if (servicesSlider && sliderPrev && sliderNext) {
-  const slides = servicesSlider.querySelectorAll('.service-slide');
-  const slideCount = slides.length;
-
-  const getSlideStep = () => {
-    const firstSlide = slides[0];
-    if (!firstSlide) return 340;
-    return firstSlide.getBoundingClientRect().width + 24;
+  const slides = [...servicesSlider.querySelectorAll('.service-slide')];
+  const count = slides.length;
+  // Copies on both ends allow the last card to flow directly into the first.
+  const copySlide = (slide) => {
+    const copy = slide.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.querySelectorAll('a').forEach(link => link.tabIndex = -1);
+    return copy;
   };
+  servicesSlider.prepend(...slides.map(copySlide));
+  servicesSlider.append(...slides.map(copySlide));
+  const allSlides = [...servicesSlider.querySelectorAll('.service-slide')];
+  let positions = [];
+  let timer;
+  let settleTimer;
+  let visible = false;
+  let touching = false;
+  let active = 0;
+  const nearestIndex = () => positions.reduce((best, position, i) =>
+    Math.abs(position - servicesSlider.scrollLeft) < Math.abs(positions[best] - servicesSlider.scrollLeft) ? i : best, count);
+  const logicalIndex = index => ((index - count) % count + count) % count;
+  const updateDots = () => {
+    active = logicalIndex(nearestIndex());
+    [...sliderDotsContainer.children].forEach((dot, i) => {
+      dot.classList.toggle('active', i === active);
+      dot.setAttribute('aria-current', String(i === active));
+    });
+  };
+  const normalize = () => {
+    if (touching || !positions.length) return;
+    const index = nearestIndex();
+    if (index < count || index >= count * 2) {
+      servicesSlider.scrollTo({ left: positions[count + logicalIndex(index)], behavior: 'instant' });
+    }
+    updateDots();
+  };
+  const goTo = (index) => {
+    if (!positions.length) return;
+    clearTimeout(settleTimer);
+    servicesSlider.scrollTo({ left: positions[index], behavior: reduceMotion ? 'instant' : 'smooth' });
+  };
+  const move = direction => {
+    normalize();
+    goTo(nearestIndex() + direction);
+  };
+  const schedule = () => {
+    clearInterval(timer);
+    if (!reduceMotion && !touching && visible && !document.hidden && count > 1) {
+      timer = setInterval(() => move(1), 3500);
+    }
+  };
+  slides.forEach((slide, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'slider-dot';
+    dot.setAttribute('aria-label', `Show ${slide.querySelector('h3').textContent.trim()}`);
+    dot.setAttribute('aria-controls', 'services-slider');
+    dot.addEventListener('click', () => { goTo(count + i); schedule(); });
+    sliderDotsContainer.appendChild(dot);
+  });
+  const rebuild = () => {
+    positions = allSlides.map(slide => slide.offsetLeft - allSlides[0].offsetLeft);
+    servicesSlider.scrollTo({ left: positions[count + active], behavior: 'instant' });
+    updateDots();
+    schedule();
+  };
+  sliderNext.addEventListener('click', () => { move(1); schedule(); });
+  sliderPrev.addEventListener('click', () => { move(-1); schedule(); });
+  servicesSlider.addEventListener('scroll', () => {
+    updateDots();
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(normalize, 180);
+  }, { passive: true });
+  servicesSlider.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    move(event.key === 'ArrowRight' ? 1 : -1);
+    schedule();
+  });
+  servicesSlider.addEventListener('pointerdown', () => { touching = true; schedule(); });
+  const release = () => { if (touching) { touching = false; settleTimer = setTimeout(normalize, 180); schedule(); } };
+  window.addEventListener('pointerup', release);
+  window.addEventListener('pointercancel', release);
+  document.addEventListener('visibilitychange', schedule);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      schedule();
+    }, { threshold: 0.25 }).observe(servicesSlider);
+  } else {
+    visible = true;
+  }
+  window.addEventListener('resize', rebuild);
+  rebuild();
+}
 
-  if (sliderDotsContainer && slideCount > 0) {
-    sliderDotsContainer.innerHTML = '';
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = `slider-dot ${i === 0 ? 'active' : ''}`;
-      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      dot.addEventListener('click', () => {
-        servicesSlider.scrollTo({ left: i * getSlideStep(), behavior: 'smooth' });
-      });
-      sliderDotsContainer.appendChild(dot);
+// Hero background video autoplay initialization
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  const playPromise = heroVideo.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // Browser policy prevented autoplay; fallback poster is active
     });
   }
-
-  const updateDots = () => {
-    if (!sliderDotsContainer) return;
-    const step = getSlideStep();
-    const activeIndex = Math.min(Math.round(servicesSlider.scrollLeft / step), slideCount - 1);
-    const dots = sliderDotsContainer.querySelectorAll('.slider-dot');
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === activeIndex);
-    });
-  };
-
-  let scrollTimeout;
-  servicesSlider.addEventListener('scroll', () => {
-    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
-    scrollTimeout = requestAnimationFrame(updateDots);
-  }, { passive: true });
-
-  sliderNext.addEventListener('click', () => {
-    servicesSlider.scrollBy({ left: getSlideStep(), behavior: 'smooth' });
-  });
-
-  sliderPrev.addEventListener('click', () => {
-    servicesSlider.scrollBy({ left: -getSlideStep(), behavior: 'smooth' });
-  });
 }
+

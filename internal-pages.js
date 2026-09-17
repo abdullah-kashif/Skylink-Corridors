@@ -567,118 +567,398 @@ const industryPages = {
     tagline: 'Responsive logistics for stores, suppliers, and customers.',
     image: 'warehouse.jpg',
     desc: 'Skylink Corridors helps retailers coordinate supplier inbound freight, inventory flow, store replenishment, and customer delivery. Our flexible transport and warehousing network responds quickly to promotions, seasonal peaks, and changing demand.',
-    focus: ['Vendor Consolidation', 'Store Replenishment', 'Peak-Season Capacity', 'Delivery Visibility'],
+    benefits: [
+      'Flexible transportation capacity',
+      'Reliable scheduled deliveries',
+      'End-to-end shipment visibility',
+      'Efficient route planning',
+      'Dedicated retail support'
+    ],
+    offerings: [
+      {
+        title: 'Vendor Consolidation',
+        desc: 'Combining shipments from multiple suppliers to streamline inbound handling and minimize dock congestion.'
+      },
+      {
+        title: 'Store Replenishment',
+        desc: 'Scheduled transportation ensuring shelves remain stocked across regional and urban retail networks.'
+      },
+      {
+        title: 'Peak-Season Capacity',
+        desc: 'Flexible surge capacity to support high-volume holiday sales, promotional campaigns, and demand spikes.'
+      }
+    ],
     tags: ['Transportation', 'Warehousing', 'Cross Dock', 'Final Mile']
-  },
-  'private-equity': {
-    title: 'Private Equity Logistics',
-    tagline: 'Scalable supply chain support across portfolio companies.',
-    image: 'about.jpg',
-    desc: 'We help private equity teams stabilize, integrate, and improve logistics operations across portfolio businesses. Standardized reporting and flexible capacity create visibility while supporting growth, acquisitions, and operational transformation.',
-    focus: ['Network Assessment', 'Portfolio Standardization', 'Cost Optimization', 'Scalable Capacity'],
-    tags: ['Transportation', 'Warehousing', 'Technology', 'Reporting']
   },
   ecommerce: {
     title: 'E-Commerce Logistics',
-    tagline: 'Fulfillment and delivery designed for online growth.',
+    tagline: 'Connecting Every Order to Its Destination.',
     image: 'ecommerce.jpg',
-    desc: 'Our e-commerce logistics platform connects inventory, order fulfillment, transportation, final-mile delivery, and returns. Scalable processes help brands deliver accurately and quickly while protecting the customer experience.',
-    focus: ['Order Fulfillment', 'Inventory Accuracy', 'Final-Mile Delivery', 'Returns Management'],
+    desc: 'Skylink Corridors provides flexible road freight solutions for e-commerce businesses, supporting the movement of inventory, parcels, and commercial shipments between suppliers, fulfillment centers, warehouses, distribution hubs, and delivery locations. Our coordinated road transportation services help businesses maintain reliable delivery schedules, improve shipment visibility, and efficiently manage growing distribution requirements.',
+    benefits: [
+      'Flexible transportation capacity',
+      'Reliable scheduled deliveries',
+      'End-to-end shipment visibility',
+      'Efficient route planning',
+      'Scalable distribution support'
+    ],
+    offerings: [
+      {
+        title: 'Fulfillment Center Transportation',
+        desc: 'Movement of inventory between suppliers, warehouses, and fulfillment facilities.'
+      },
+      {
+        title: 'Last-Mile & Distribution Support',
+        desc: 'Coordinated road transportation for retail and customer delivery networks.'
+      },
+      {
+        title: 'Reverse Logistics',
+        desc: 'Efficient movement of returns, replacements, and recovered products.'
+      }
+    ],
     tags: ['Warehousing', 'Fulfillment', 'Transportation', 'Reverse Logistics']
   },
-  healthcare: {
-    title: 'Healthcare Logistics',
-    tagline: 'Controlled, visible handling for critical healthcare products.',
-    image: 'transport.jpg',
-    desc: 'Healthcare logistics requires disciplined handling, reliable timing, and clear chain-of-custody visibility. We coordinate suitable transport and storage processes for medical products, equipment, and healthcare supplies.',
-    focus: ['Chain of Custody', 'Temperature Control', 'Priority Handling', 'Delivery Visibility'],
-    tags: ['Cold Chain', 'Dedicated Transport', 'Warehousing', 'Final Mile']
-  },
   cpg: {
-    title: 'CPG Logistics',
-    tagline: 'High-velocity logistics for consumer packaged goods.',
+    title: 'Consumer Packaged Goods (CPG) Logistics',
+    tagline: 'Reliable Road Freight for Fast-Moving Markets.',
     image: 'warehouse.jpg',
-    desc: 'We support consumer packaged goods manufacturers with inbound materials, warehousing, retail consolidation, and responsive distribution. Structured planning keeps fast-moving inventory available across changing demand cycles.',
-    focus: ['Retail Compliance', 'Inventory Flow', 'Promotional Capacity', 'Multi-Channel Distribution'],
+    desc: 'Our CPG road freight solutions support manufacturers, distributors, wholesalers, and retailers with dependable transportation for high-volume consumer products. Skylink Corridors coordinates regular replenishment, regional distribution, and intercity transportation to help businesses maintain product availability and consistent supply across their distribution networks.',
+    benefits: [
+      'High-volume freight capacity',
+      'Scheduled replenishment',
+      'Optimized delivery routes',
+      'Multi-location distribution',
+      'Improved shipment coordination'
+    ],
+    offerings: [
+      {
+        title: 'FMCG Road Distribution',
+        desc: 'Transportation of consumer products across wholesale, retail, and commercial channels.'
+      },
+      {
+        title: 'Retail Replenishment',
+        desc: 'Scheduled movement of inventory to distribution centers and retail locations.'
+      },
+      {
+        title: 'Cross-Docking Transportation',
+        desc: 'Fast transfer of goods between inbound and outbound road movements.'
+      }
+    ],
     tags: ['Warehousing', 'Retail Consolidation', 'FTL & LTL', 'Cross Dock']
-  },
-  'food-beverage': {
-    title: 'Food & Beverage Logistics',
-    tagline: 'Fresh, compliant movement across the food supply chain.',
-    image: 'transport.jpg',
-    desc: 'Our food and beverage logistics services coordinate time-sensitive transport, suitable storage, route planning, and delivery scheduling. Operational controls help protect product condition, freshness, and service reliability.',
-    focus: ['Cold-Chain Support', 'Time-Critical Delivery', 'Lot Visibility', 'Seasonal Capacity'],
-    tags: ['Temperature Controlled', 'Warehousing', 'FTL', 'Retail Delivery']
   },
   'durable-goods': {
     title: 'Durable Goods Logistics',
-    tagline: 'Reliable handling for high-value, long-life products.',
+    tagline: 'Moving Valuable Goods with Extra Care.',
     image: 'warehouse.jpg',
-    desc: 'Durable goods require careful handling, inventory control, and dependable transportation. We coordinate inbound materials, storage, distribution, and specialized final-mile delivery for products of varied size and value.',
-    focus: ['Damage Prevention', 'Inventory Control', 'Special Handling', 'Scheduled Delivery'],
+    desc: 'Skylink Corridors provides specialized road freight solutions for appliances, electronics, furniture, machinery, and other durable goods. Our transportation planning and careful handling procedures support safe movement between manufacturers, warehouses, distributors, dealers, and end destinations.',
+    benefits: [
+      'Secure cargo handling',
+      'Suitable vehicle planning',
+      'Reduced handling risks',
+      'Scheduled delivery coordination',
+      'Shipment tracking and visibility'
+    ],
+    offerings: [
+      {
+        title: 'Heavy & Bulky Goods Transportation',
+        desc: 'Road transportation for oversized and high-value products.'
+      },
+      {
+        title: 'Dealer & Retail Distribution',
+        desc: 'Coordinated deliveries to dealer and retail networks.'
+      },
+      {
+        title: 'White-Glove Road Delivery',
+        desc: 'Appointment-based transportation with enhanced handling and delivery coordination.'
+      }
+    ],
     tags: ['Warehousing', 'FTL', 'Big & Bulky', 'Final Mile']
-  },
-  building: {
-    title: 'Building Products & Materials Logistics',
-    tagline: 'Job-site ready transportation for construction supply chains.',
-    image: 'transport.jpg',
-    desc: 'We move building products and materials with equipment selection, load planning, delivery scheduling, and site coordination. Reliable capacity and proactive communication help contractors and suppliers maintain project timelines.',
-    focus: ['Equipment Selection', 'Job-Site Scheduling', 'Heavy-Load Planning', 'Proof of Delivery'],
-    tags: ['Flatbed Transport', 'Dedicated Trucking', 'Warehousing', 'Final Mile']
   },
   automotive: {
     title: 'Automotive Logistics',
-    tagline: 'Synchronized transportation for automotive supply chains.',
+    tagline: 'Driving Automotive Supply Chains Forward.',
     image: 'transport.jpg',
-    desc: 'Automotive logistics demands precise scheduling and continuous visibility. We coordinate inbound components, production-support freight, aftermarket distribution, and expedited recovery to keep operations moving.',
-    focus: ['Production Scheduling', 'Parts Consolidation', 'Expedited Recovery', 'Shipment Visibility'],
+    desc: 'Our automotive road freight solutions support OEMs, component manufacturers, dealerships, distributors, and aftermarket businesses with reliable transportation for vehicles, spare parts, components, and production materials. Skylink Corridors coordinates scheduled movements and optimized routes to support production continuity and timely distribution.',
+    benefits: [
+      'Time-critical transportation',
+      'Reliable scheduled movements',
+      'Parts and component coordination',
+      'Route optimization',
+      'Real-time shipment monitoring'
+    ],
+    offerings: [
+      {
+        title: 'Automotive Parts Transportation',
+        desc: 'Movement of components and spare parts between suppliers, plants, warehouses, and dealers.'
+      },
+      {
+        title: 'JIT Road Freight',
+        desc: 'Scheduled transportation supporting just-in-time manufacturing requirements.'
+      },
+      {
+        title: 'Aftermarket Distribution',
+        desc: 'Road distribution of replacement parts and automotive products.'
+      }
+    ],
     tags: ['Dedicated Trucking', 'Cross Dock', 'FTL & LTL', 'Cross-Border']
   },
-  glass: {
-    title: 'Glass Logistics',
-    tagline: 'Specialized care for fragile and high-risk freight.',
-    image: 'transport.jpg',
-    desc: 'Our glass logistics solutions emphasize equipment suitability, secure loading, careful handling, and controlled delivery. Experienced coordination reduces damage risk from origin through job site or customer destination.',
-    focus: ['Secure Load Planning', 'Specialized Handling', 'Damage Prevention', 'Site Coordination'],
-    tags: ['Dedicated Transport', 'Special Equipment', 'Warehousing', 'Final Mile']
-  },
   paper: {
-    title: 'Paper Logistics',
-    tagline: 'Protected, efficient movement for paper and packaging products.',
+    title: 'Paper & Packaging Logistics',
+    tagline: 'Protecting Every Roll. Delivering Every Sheet.',
     image: 'warehouse.jpg',
-    desc: 'Paper products need protection from moisture, contamination, and handling damage. We coordinate clean equipment, suitable storage, load planning, and reliable distribution for mills, converters, and customers.',
-    focus: ['Moisture Protection', 'Clean Equipment', 'Inventory Rotation', 'Reliable Distribution'],
+    desc: 'Skylink Corridors provides road freight solutions for paper manufacturers, printers, packaging companies, converters, and industrial distributors. We coordinate the transportation of rolls, sheets, pulp, and packaging materials with appropriate loading, securing, route planning, and delivery procedures to help protect cargo throughout transit.',
+    benefits: [
+      'Careful cargo handling',
+      'Secure loading procedures',
+      'Moisture-risk awareness',
+      'Efficient route planning',
+      'Reliable scheduled deliveries'
+    ],
+    offerings: [
+      {
+        title: 'Roll & Sheet Transportation',
+        desc: 'Road movement of paper rolls, sheets, and related products.'
+      },
+      {
+        title: 'Industrial Paper Distribution',
+        desc: 'Scheduled distribution to manufacturers, converters, wholesalers, and customers.'
+      },
+      {
+        title: 'Packaging Material Freight',
+        desc: 'Transportation of packaging materials and production inputs.'
+      }
+    ],
     tags: ['Warehousing', 'FTL', 'Dedicated Trucking', 'Cross Dock']
   },
-  'wine-spirits': {
-    title: 'Wine, Spirits and Breweries Logistics',
-    tagline: 'Controlled logistics for beverage production and distribution.',
-    image: 'transport.jpg',
-    desc: 'We coordinate transport and storage for beverage ingredients, packaging, finished products, and retail orders. Careful handling, temperature awareness, and shipment visibility support product quality and dependable distribution.',
-    focus: ['Product Protection', 'Temperature Awareness', 'Retail Distribution', 'Inventory Visibility'],
-    tags: ['Temperature Controlled', 'Warehousing', 'Retail Delivery', 'FTL']
-  },
   '3pl': {
-    title: 'Asset Solutions for 3PLs',
-    tagline: 'Dependable fleet capacity that strengthens your customer promise.',
+    title: '3PL Transportation Capacity Solutions',
+    tagline: 'Flexible Road Capacity When You Need It.',
     image: 'transport.jpg',
-    desc: 'Skylink provides 3PL partners with asset-backed capacity, regional execution, and responsive operational support. Our services extend your network while maintaining shipment visibility and consistent service standards.',
-    focus: ['Asset-Backed Capacity', 'White-Label Execution', 'Regional Coverage', 'Performance Reporting'],
+    desc: 'Skylink Corridors supports third-party logistics providers with flexible road freight capacity for customer requirements, seasonal peaks, overflow volumes, and contracted transportation programs. Our corridor-based transportation network enables 3PL providers to expand their service capabilities while maintaining coordinated shipment execution and delivery performance.',
+    benefits: [
+      'Flexible transportation capacity',
+      'Support during peak demand',
+      'Reduced fleet dependency',
+      'Carrier coordination',
+      'Scalable road freight solutions'
+    ],
+    offerings: [
+      {
+        title: 'Dedicated Road Capacity',
+        desc: 'Allocated transportation resources for recurring customer requirements.'
+      },
+      {
+        title: 'Peak & Overflow Transportation',
+        desc: 'Additional capacity during seasonal or unexpected demand.'
+      },
+      {
+        title: '3PL Network Support',
+        desc: 'Coordinated road freight execution supporting wider logistics networks.'
+      }
+    ],
     tags: ['Dedicated Trucking', 'FTL & LTL', 'Cross-Border', 'Final Mile']
   },
   chemical: {
     title: 'Chemical Logistics',
-    tagline: 'Safety-led transportation for sensitive chemical supply chains.',
+    tagline: 'Safe & Compliant Road Freight for Chemicals.',
     image: 'transport.jpg',
-    desc: 'Chemical logistics requires disciplined planning, suitable equipment, documentation, and trained execution. We coordinate each movement with safety, compliance, and product integrity at the center of the operation.',
-    focus: ['Safety Procedures', 'Suitable Equipment', 'Documentation Control', 'Shipment Visibility'],
+    desc: 'Skylink Corridors provides controlled road freight solutions for hazardous and non-hazardous chemical products, subject to applicable regulations and shipment requirements. Our approach emphasizes appropriate vehicle selection, documentation, cargo handling, route planning, trained personnel, and safety procedures for responsible transportation.',
+    benefits: [
+      'Compliance-focused transportation',
+      'Appropriate vehicle selection',
+      'Safety-driven handling',
+      'Shipment documentation support',
+      'Route and risk planning'
+    ],
+    offerings: [
+      {
+        title: 'Hazardous Chemical Transportation',
+        desc: 'Road movement of regulated chemical cargo using appropriate procedures and equipment.'
+      },
+      {
+        title: 'Industrial Chemical Distribution',
+        desc: 'Scheduled transportation between manufacturers, warehouses, and industrial customers.'
+      },
+      {
+        title: 'Chemical Transport Documentation',
+        desc: 'Coordination of shipment and regulatory documentation requirements.'
+      }
+    ],
     tags: ['Dedicated Transport', 'Temperature Control', 'Warehousing', 'Cross-Border']
+  },
+  'private-equity': {
+    title: 'Private Equity & Portfolio Logistics',
+    tagline: 'Smarter Road Freight for Growing Businesses.',
+    image: 'about.jpg',
+    desc: 'Skylink Corridors supports investment firms and portfolio companies with road freight solutions designed around operational efficiency, scalability, and supply chain performance. We help businesses coordinate transportation networks, consolidate road freight requirements, and develop practical transportation models aligned with changing business volumes.',
+    benefits: [
+      'Transportation cost visibility',
+      'Network optimization',
+      'Scalable capacity',
+      'Performance monitoring',
+      'Operational efficiency'
+    ],
+    offerings: [
+      {
+        title: 'Road Freight Network Optimization',
+        desc: 'Review and optimization of transportation routes and distribution flows.'
+      },
+      {
+        title: 'Freight Cost Management',
+        desc: 'Transportation planning and consolidation to improve cost efficiency.'
+      },
+      {
+        title: 'Portfolio Logistics Support',
+        desc: 'Scalable road freight services for businesses undergoing expansion or operational transformation.'
+      }
+    ],
+    tags: ['Transportation', 'Warehousing', 'Technology', 'Reporting']
+  },
+  healthcare: {
+    title: 'Healthcare Logistics',
+    tagline: 'Reliable Road Freight When Every Shipment Matters.',
+    image: 'transport.jpg',
+    desc: 'Our healthcare road freight solutions support pharmaceutical companies, medical device manufacturers, hospitals, clinics, laboratories, and healthcare distributors. Skylink Corridors coordinates secure and time-sensitive transportation for medical supplies, pharmaceutical products, equipment, and other healthcare cargo while supporting applicable handling and temperature requirements.',
+    benefits: [
+      'Time-sensitive transportation',
+      'Secure cargo handling',
+      'Temperature-aware transportation',
+      'Shipment visibility',
+      'Compliance-focused operations'
+    ],
+    offerings: [
+      {
+        title: 'Pharmaceutical Road Freight',
+        desc: 'Transportation of pharmaceutical products subject to applicable handling requirements.'
+      },
+      {
+        title: 'Medical Equipment Transportation',
+        desc: 'Secure movement of medical devices, laboratory equipment, and healthcare supplies.'
+      },
+      {
+        title: 'Temperature-Controlled Road Freight',
+        desc: 'Controlled transportation for temperature-sensitive healthcare shipments.'
+      }
+    ],
+    tags: ['Cold Chain', 'Dedicated Transport', 'Warehousing', 'Final Mile']
+  },
+  'food-beverage': {
+    title: 'Food & Beverage Logistics',
+    tagline: 'Keeping Products Fresh from Source to Destination.',
+    image: 'transport.jpg',
+    desc: 'Skylink Corridors provides road freight solutions for food manufacturers, distributors, retailers, supermarkets, restaurants, and food service businesses. Our transportation planning supports chilled, frozen, and ambient products through appropriate vehicle selection, route planning, temperature management, and scheduled distribution.',
+    benefits: [
+      'Temperature-managed transportation',
+      'Freshness-focused handling',
+      'Reliable delivery schedules',
+      'Route optimization',
+      'Reduced transit and spoilage risks'
+    ],
+    offerings: [
+      {
+        title: 'Cold Chain Road Freight',
+        desc: 'Transportation of chilled and frozen food products under appropriate temperature conditions.'
+      },
+      {
+        title: 'Food Distribution',
+        desc: 'Scheduled road distribution to retailers, supermarkets, restaurants, and food service locations.'
+      },
+      {
+        title: 'Retail Replenishment Freight',
+        desc: 'Regular inventory movement supporting continuous product availability.'
+      }
+    ],
+    tags: ['Temperature Controlled', 'Warehousing', 'FTL', 'Retail Delivery']
+  },
+  building: {
+    title: 'Building Products & Materials Logistics',
+    tagline: 'Keeping Construction Supply Chains Moving.',
+    image: 'transport.jpg',
+    desc: 'Skylink Corridors provides road freight solutions for construction companies, infrastructure developers, manufacturers, and building material suppliers. We coordinate transportation of cement, steel, timber, pipes, glass, prefabricated materials, and other project cargo through suitable vehicles, planned routes, and scheduled site deliveries.',
+    benefits: [
+      'Heavy cargo transportation',
+      'Project-based scheduling',
+      'Suitable vehicle planning',
+      'Construction-site delivery coordination',
+      'Reliable material movement'
+    ],
+    offerings: [
+      {
+        title: 'Construction Material Transportation',
+        desc: 'Road movement of building materials and project supplies.'
+      },
+      {
+        title: 'Heavy & Oversized Cargo Movement',
+        desc: 'Transportation planning for heavy, bulky, and oversized materials.'
+      },
+      {
+        title: 'Project Site Logistics',
+        desc: 'Coordinated deliveries and scheduled transportation directly to project sites.'
+      }
+    ],
+    tags: ['Flatbed Transport', 'Dedicated Trucking', 'Warehousing', 'Final Mile']
+  },
+  glass: {
+    title: 'Glass Logistics',
+    tagline: 'Moving Fragile Glass with Precision.',
+    image: 'transport.jpg',
+    desc: 'Skylink Corridors offers specialized road freight solutions for architectural, automotive, industrial, commercial, and specialty glass products. Our transportation approach focuses on secure positioning, protective handling, suitable vehicle selection, careful loading and unloading, and route planning to minimize the risk of damage during transit.',
+    benefits: [
+      'Fragile cargo handling',
+      'Secure loading and positioning',
+      'Suitable transportation equipment',
+      'Careful route planning',
+      'Reduced breakage risk'
+    ],
+    offerings: [
+      {
+        title: 'Architectural Glass Transportation',
+        desc: 'Road freight for construction and architectural glass products.'
+      },
+      {
+        title: 'Protective Handling & Crating',
+        desc: 'Coordination of appropriate packaging, securing, and loading procedures.'
+      },
+      {
+        title: 'Project Glass Distribution',
+        desc: 'Scheduled transportation to construction sites, fabricators, and project locations.'
+      }
+    ],
+    tags: ['Dedicated Transport', 'Special Equipment', 'Warehousing', 'Final Mile']
+  },
+  'wine-spirits': {
+    title: 'Wine, Spirits & Brewery Logistics',
+    tagline: 'Secure Beverage Transportation from Source to Market.',
+    image: 'transport.jpg',
+    desc: 'Skylink Corridors provides specialized road freight coordination for beverage manufacturers, importers, distributors, retailers, and hospitality businesses, subject to applicable laws, permits, and regulatory requirements. Our services support secure transportation, scheduled distribution, inventory movement, and controlled handling of packaged and bulk beverage products.',
+    benefits: [
+      'Secure cargo transportation',
+      'Regulatory documentation support',
+      'Scheduled distribution',
+      'Inventory movement coordination',
+      'Shipment visibility'
+    ],
+    offerings: [
+      {
+        title: 'Beverage Road Distribution',
+        desc: 'Transportation of packaged beverage products across approved distribution networks.'
+      },
+      {
+        title: 'Regulated Cargo Transportation',
+        desc: 'Coordination of transportation requirements for regulated beverage shipments.'
+      },
+      {
+        title: 'Hospitality & Event Deliveries',
+        desc: 'Scheduled road freight support for approved hospitality and event-related requirements.'
+      }
+    ],
+    tags: ['Temperature Controlled', 'Warehousing', 'Retail Delivery', 'FTL']
   }
 };
 
-const nav = `<header class="site-header detail-header"><nav class="navbar container" aria-label="Main navigation"><a class="brand" href="/"><img src="/assets/Skylink%20Corridor%20logo%20New.png" alt="Skylink Corridors"></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-wrap"><div class="nav-item has-menu"><button class="nav-trigger" aria-expanded="false">About Us <span>⌄</span></button><div class="dropdown about-menu"><a href="/about/story/">Our Story</a><a href="/about/leadership/">Leadership</a><a href="/about/values/">Our Values</a><a href="/about/technology/">Technology &amp; Innovation</a><a href="/about/sustainability/">Sustainability</a><a href="/about/news/">News</a><a href="/about/portfolio/">Portfolio</a></div></div><div class="nav-item has-menu"><button class="nav-trigger" aria-expanded="false">Services <span>⌄</span></button><div class="dropdown services-menu">${Object.entries(servicePages).map(([slug, p]) => `<a href="/services/${slug}/">${p.title}</a>`).join('')}</div></div><div class="nav-item has-menu"><button class="nav-trigger" aria-expanded="false">Industries <span>⌄</span></button><div class="dropdown industries-menu">${Object.entries(industryPages).map(([slug, p]) => `<a href="/industries/${slug}/">${p.title}</a>`).join('')}</div></div><a class="nav-link" href="/careers/">Careers</a><a class="nav-link" href="/contact/">Contact</a></div><a class="btn quote-btn" href="/contact/">Request a Quote</a></nav></header>`;
+const nav = `<header class="site-header detail-header"><nav class="navbar container" aria-label="Main navigation"><a class="brand" href="/"><img src="/assets/Skylink%20Corridor%20logo%20New.png" alt="Skylink Corridors"></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-wrap"><div class="nav-item has-menu"><button class="nav-trigger" aria-expanded="false">About Us <span>⌄</span></button><div class="dropdown about-menu"><a href="/about/story/">Our Story</a><a href="/about/leadership/">Leadership</a><a href="/about/values/">Our Values</a><a href="/about/technology/">Technology &amp; Innovation</a><a href="/about/sustainability/">Sustainability</a><a href="/about/news/">News</a><a href="/about/portfolio/">Portfolio</a></div></div><div class="nav-item has-menu"><button class="nav-trigger" aria-expanded="false">Services <span>⌄</span></button><div class="dropdown services-menu">${Object.entries(servicePages).map(([slug, p]) => `<a href="/services/${slug}/">${p.title}</a>`).join('')}</div></div><div class="nav-item has-menu"><button class="nav-trigger" aria-expanded="false">Industries <span>⌄</span></button><div class="dropdown industries-menu">${Object.entries(industryPages).map(([slug, p]) => `<a href="/industries/${slug}/">${p.title}</a>`).join('')}</div></div><a class="nav-link" href="/careers/">Careers</a><a class="nav-link" href="/contact/">Contact</a></div><a class="btn btn-primary quote-btn" href="/contact/">Request a Quote</a></nav></header>`;
 
-const footer = `<footer><div class="container footer-grid"><div class="footer-brand"><a href="/" class="footer-logo"><img src="/assets/Skylink%20Corridor%20logo%20New.png" alt="Skylink Corridor"></a><p class="footer-desc"><strong>Skylink Corridor</strong><br>Integrated Logistics • Transportation • Warehousing • Freight Forwarding • Cross-Border Logistics • Supply Chain Solutions</p><div class="footer-social-section"><div class="footer-subhead">Follow Us</div><div class="social-links" aria-label="Social media"><a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a></div></div></div><div><h3>Quick Links</h3><a href="/about/">About Us</a><a href="/services/">Services</a><a href="/industries/">Industries</a><a href="/about/technology/">Technology</a><a href="/careers/">Careers</a><a href="/contact/">Contact</a></div><div><h3>Services</h3><a href="/services/intermodal/">Intermodal Transportation</a><a href="/services/truck-brokerage/">Truck Brokerage</a><a href="/services/asset-trucking/">Asset Trucking</a><a href="/services/dedicated-trucking/">Dedicated Trucking</a><a href="/services/international-freight/">International Freight</a><a href="/services/cross-border/">Cross-Border Logistics</a></div><div class="footer-contact"><h3>Contact</h3><p class="contact-title"><strong>Head Office</strong><br>Karachi, Pakistan</p><p><a href="mailto:info@skylinkcorridor.com">✉ info@skylinkcorridor.com</a></p><p><a href="tel:+92XXXXXXXXXX">☎ +92 XXX XXXXXXX</a></p></div></div><div class="footer-bottom container"><span>© 2026 Skylink Corridor. All Rights Reserved.</span><span><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></span></div></footer>`;
+const footer = `<footer><div class="container footer-grid"><div class="footer-brand"><a href="/" class="footer-logo"><img src="/assets/Skylink%20Corridor%20logo%20New.png" alt="Skylink Corridor"></a><p class="footer-desc">Integrated Logistics • Transportation • Warehousing • Freight Forwarding • Cross-Border Logistics • Supply Chain Solutions</p><div class="footer-social-section"><div class="footer-subhead">Follow Us</div><div class="social-links" aria-label="Social media"><a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a></div></div></div><div><h3>Quick Links</h3><a href="/about/">About Us</a><a href="/services/">Services</a><a href="/industries/">Industries</a><a href="/about/technology/">Technology</a><a href="/careers/">Careers</a><a href="/contact/">Contact</a></div><div><h3>Services</h3><a href="/services/intermodal/">Intermodal Transportation</a><a href="/services/truck-brokerage/">Truck Brokerage</a><a href="/services/asset-trucking/">Asset Trucking</a><a href="/services/dedicated-trucking/">Dedicated Trucking</a><a href="/services/international-freight/">International Freight</a><a href="/services/cross-border/">Cross-Border Logistics</a></div><div class="footer-contact"><h3>Contact</h3><p class="contact-title"><strong>Head Office</strong><br>Karachi, Pakistan</p><p><a href="mailto:info@skylinkcorridor.com">✉ info@skylinkcorridor.com</a></p><p><a href="tel:+92XXXXXXXXXX">☎ +92 XXX XXXXXXX</a></p></div></div><div class="footer-bottom container"><span>© 2026 Skylink Corridor. All Rights Reserved.</span><span><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></span></div></footer>`;
 
 const type = document.body.dataset.type;
 const slug = document.body.dataset.slug;
@@ -687,7 +967,7 @@ if (!page) {
   document.body.innerHTML = '<main class="missing-page"><h1>Page not found</h1><a href="/">Return home</a></main>';
 } else {
   const label = type === 'service' ? 'Our Services' : 'Industries We Serve';
-  const overviewTitle = type === 'service' ? 'Service Overview' : 'Industry Overview';
+  const overviewTitle = 'Service Overview';
   const sectionTitle = type === 'service' ? 'Industries We Serve with This Solution' : 'Solutions for This Industry';
   const descriptions = [
     'Coordinated planning and execution built around your requirements.',
@@ -704,7 +984,7 @@ if (!page) {
     'Dedicated support and proactive exception management'
   ]).map(b => `<li>${b}</li>`).join('');
 
-  const offeringsTitle = type === 'service' ? 'Service Offerings' : 'What We Offer';
+  const offeringsTitle = type === 'service' ? 'Service Offerings' : 'Specialized Service Offerings';
   const offeringsList = page.offerings && page.offerings.length
     ? page.offerings.map(o => `<article><b>•</b><div><h4>${o.title}</h4><p>${o.desc}</p></div></article>`).join('')
     : (page.focus || []).map((item, i) => `<article><b>•</b><div><h4>${item}</h4><p>${descriptions[i] || ''}</p></div></article>`).join('');
