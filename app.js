@@ -206,7 +206,7 @@ if (servicesSlider && sliderPrev && sliderNext) {
   let positions = [];
   let timer;
   let settleTimer;
-  let visible = false;
+  let visible = true;
   let touching = false;
   let active = 0;
   const nearestIndex = () => positions.reduce((best, position, i) =>
@@ -230,7 +230,7 @@ if (servicesSlider && sliderPrev && sliderNext) {
   const goTo = (index) => {
     if (!positions.length) return;
     clearTimeout(settleTimer);
-    servicesSlider.scrollTo({ left: positions[index], behavior: reduceMotion ? 'instant' : 'smooth' });
+    servicesSlider.scrollTo({ left: positions[index], behavior: 'smooth' });
   };
   const move = direction => {
     normalize();
@@ -238,8 +238,8 @@ if (servicesSlider && sliderPrev && sliderNext) {
   };
   const schedule = () => {
     clearInterval(timer);
-    if (!reduceMotion && !touching && visible && !document.hidden && count > 1) {
-      timer = setInterval(() => move(1), 3500);
+    if (!touching && visible && !document.hidden && count > 1) {
+      timer = setInterval(() => move(1), 3200);
     }
   };
   slides.forEach((slide, i) => {
@@ -271,6 +271,8 @@ if (servicesSlider && sliderPrev && sliderNext) {
     schedule();
   });
   servicesSlider.addEventListener('pointerdown', () => { touching = true; schedule(); });
+  servicesSlider.addEventListener('mouseenter', () => { touching = true; clearInterval(timer); });
+  servicesSlider.addEventListener('mouseleave', () => { touching = false; schedule(); });
   const release = () => { if (touching) { touching = false; settleTimer = setTimeout(normalize, 180); schedule(); } };
   window.addEventListener('pointerup', release);
   window.addEventListener('pointercancel', release);
@@ -279,12 +281,14 @@ if (servicesSlider && sliderPrev && sliderNext) {
     new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting;
       schedule();
-    }, { threshold: 0.25 }).observe(servicesSlider);
+    }, { threshold: 0.1 }).observe(servicesSlider);
   } else {
     visible = true;
   }
   window.addEventListener('resize', rebuild);
+  window.addEventListener('load', rebuild);
   rebuild();
+  schedule();
 }
 
 // Hero background video autoplay initialization
