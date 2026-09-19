@@ -29,16 +29,27 @@ if (menuToggle && navWrap) {
 
 navItems.forEach((item) => {
   const trigger = item.querySelector('.nav-trigger');
+  if (!trigger) return;
+  const caret = trigger.querySelector('span');
+
   trigger.addEventListener('click', (event) => {
-    event.stopPropagation();
-    navItems.forEach((other) => {
-      if (other !== item) {
-        other.classList.remove('open');
-        other.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false');
-      }
-    });
-    const open = item.classList.toggle('open');
-    trigger.setAttribute('aria-expanded', String(open));
+    const isMobile = window.innerWidth <= 900;
+    // On mobile screens, tapping the caret arrow toggles the dropdown submenu
+    if (isMobile && (event.target === caret || event.target.closest('span') === caret)) {
+      event.preventDefault();
+      event.stopPropagation();
+      navItems.forEach((other) => {
+        if (other !== item) {
+          other.classList.remove('open');
+          const ot = other.querySelector('.nav-trigger');
+          if (ot) ot.setAttribute('aria-expanded', 'false');
+        }
+      });
+      const open = item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', String(open));
+      return;
+    }
+    // Standard click on link text navigates to /about/, /services/, /industries/ directly!
   });
 });
 
@@ -93,7 +104,7 @@ if (detailCta) {
     <div><h2>Ready to get started?</h2><p>Talk to our logistics experts and get a custom quote today.</p></div>
     <div class="detail-cta-actions">
       <a class="btn btn-primary" href="/contact/">Request a Quote</a>
-      <a class="btn detail-call-btn" href="tel:+92210000000"><span aria-hidden="true">☎</span> Call Us</a>
+      <a class="btn detail-call-btn" href="tel:+9221111555401"><span aria-hidden="true">☎</span> Call Us</a>
     </div>
   </div>`;
 }
