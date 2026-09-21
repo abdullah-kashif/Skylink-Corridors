@@ -3,11 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "netlify dev",
-    "check": "node --check app.js && node --check netlify/functions/send-quote.mjs"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check netlify/functions/send-quote.mjs"
   },
   "dependencies": {
-    "nodemailer": "^9.0.3"
+    "nodemailer": "^9.1.1"
   },
   "devDependencies": {
     "netlify-cli": "^23.7.3"

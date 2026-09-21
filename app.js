@@ -95,6 +95,22 @@ if (quoteForm) {
       button.innerHTML = originalButtonText;
     }
   });
+
+  const serviceSelect = quoteForm.querySelector('select[name="service"]');
+  if (serviceSelect) {
+    const params = new URLSearchParams(window.location.search);
+    const requestedService = params.get('service');
+    if (requestedService) {
+      const cleanReq = requestedService.toLowerCase().replace(/[-_]/g, ' ').trim();
+      for (const option of serviceSelect.options) {
+        const cleanOpt = option.value.toLowerCase().replace(/[-_]/g, ' ').trim();
+        if (cleanOpt && (cleanOpt === cleanReq || cleanOpt.includes(cleanReq) || cleanReq.includes(cleanOpt))) {
+          option.selected = true;
+          break;
+        }
+      }
+    }
+  }
 }
 
 const detailCta = document.querySelector('.detail-cta');

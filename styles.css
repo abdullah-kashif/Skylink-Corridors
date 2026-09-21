@@ -1020,28 +1020,47 @@ footer {
 }
 
 .footer-phone-row {
-  margin-top: 6px !important;
-  margin-bottom: 2px !important;
+  margin-top: 8px !important;
+  margin-bottom: 0 !important;
 }
 
 .footer-email-row {
-  margin-top: 2px !important;
+  margin-top: 0 !important;
   margin-bottom: 6px !important;
 }
 
 .footer-phone-row + .footer-email-row,
 .footer-email-row + .footer-phone-row {
-  margin-top: 2px !important;
+  margin-top: 8px !important;
 }
 
 .footer-phone-row a,
 .footer-email-row a {
   display: inline-flex !important;
   align-items: center !important;
+  gap: 6px !important;
   white-space: nowrap !important;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 2px 0 !important;
   line-height: 1.35 !important;
+  color: #a4a4a4 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: color 0.22s ease, transform 0.22s ease !important;
+}
+
+.footer-phone-row a:hover,
+.footer-email-row a:hover {
+  color: var(--orange, #F15922) !important;
+  transform: translateX(4px) !important;
+}
+
+.footer-pin {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+  vertical-align: -1px;
+  margin-right: 3px;
 }
 
 .phone-nowrap {
@@ -2430,9 +2449,14 @@ footer {
   stroke-linejoin: round
 }
 
-.social-links a:first-child svg path {
-  fill: currentColor;
-  stroke: none
+.social-links a:first-child svg path,
+.social-links a:first-child svg rect,
+.social-links a:first-child svg circle,
+.social-links a[aria-label="LinkedIn"] svg path,
+.social-links a[aria-label="LinkedIn"] svg rect,
+.social-links a[aria-label="LinkedIn"] svg circle {
+  fill: currentColor !important;
+  stroke: none !important;
 }
 
 @media(max-width:1300px) and (min-width:901px) {
