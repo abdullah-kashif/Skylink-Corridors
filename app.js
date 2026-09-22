@@ -307,13 +307,31 @@ if (servicesSlider && sliderPrev && sliderNext) {
   schedule();
 }
 
-// Hero background video autoplay initialization
+// Hero background video smooth autoplay initialization
 const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
+  const showVideo = () => {
+    heroVideo.classList.add('video-playing');
+  };
+
+  heroVideo.addEventListener('playing', showVideo, { once: true });
+  heroVideo.addEventListener('timeupdate', () => {
+    if (heroVideo.currentTime > 0) showVideo();
+  }, { once: true });
+
+  if (!heroVideo.paused && heroVideo.currentTime > 0) {
+    showVideo();
+  }
+
+  // Safety fallback after 1.8s
+  setTimeout(showVideo, 1800);
+
   const playPromise = heroVideo.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
-      // Leave the plain video background visible if autoplay is blocked.
+      // If autoplay is blocked by browser policy, still reveal the video smoothly
+      showVideo();
     });
   }
 }
+

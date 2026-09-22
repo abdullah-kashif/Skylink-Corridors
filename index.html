@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/styles.css?v=8">
+  <link rel="stylesheet" href="/styles.css?v=11">
 </head>
 
 <body>
@@ -82,7 +82,7 @@
   <main>
     <section class="hero">
       <div class="hero-video-wrap" aria-hidden="true">
-        <video class="hero-bg hero-video" autoplay muted loop playsinline preload="auto">
+        <video class="hero-bg hero-video" autoplay muted loop playsinline preload="auto" onplaying="this.classList.add('video-playing')">
           <source src="assets/Hero%20Section.mp4" type="video/mp4">
         </video>
       </div>
