@@ -280,6 +280,7 @@ img {
 }
 
 .hero-video-wrap {
+  background: #101718;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -6357,3 +6358,37 @@ footer {
 }
 
 
+
+/* Regional reach copy replaces the numeric experience badge. */
+.experience.regional-reach {
+  width: 268px;
+  max-width: calc(100% - 20px);
+  height: auto;
+  padding: 18px 20px;
+}
+.experience.regional-reach strong {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 7px;
+  font-weight: 800;
+}
+.experience.regional-reach span,
+.orange-stat-box.regional-reach span {
+  display: block;
+  font-family: var(--font-sans) !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.6px !important;
+  line-height: 1.35 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  white-space: normal;
+}
+.orange-stat-box.regional-reach strong {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  font-weight: 900;
+}

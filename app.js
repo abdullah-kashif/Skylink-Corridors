@@ -313,8 +313,7 @@ if (heroVideo) {
   const playPromise = heroVideo.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
-      // Browser policy prevented autoplay; fallback poster is active
+      // Leave the plain video background visible if autoplay is blocked.
     });
   }
 }
-

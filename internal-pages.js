@@ -990,6 +990,31 @@ if (!page) {
     : (page.focus || []).map((item, i) => `<article><b>•</b><div><h4>${item}</h4><p>${descriptions[i] || ''}</p></div></article>`).join('');
 
   document.title = `${page.title} | Skylink Corridors`;
+  if (!document.querySelector('link[rel="icon"]')) {
+    const icon32 = document.createElement('link');
+    icon32.rel = 'icon';
+    icon32.type = 'image/png';
+    icon32.sizes = '32x32';
+    icon32.href = '/assets/favicon-32x32.png';
+    document.head.appendChild(icon32);
+
+    const icon192 = document.createElement('link');
+    icon192.rel = 'icon';
+    icon192.type = 'image/png';
+    icon192.sizes = '192x192';
+    icon192.href = '/assets/favicon-192x192.png';
+    document.head.appendChild(icon192);
+
+    const iconApple = document.createElement('link');
+    iconApple.rel = 'apple-touch-icon';
+    iconApple.href = '/assets/apple-touch-icon.png';
+    document.head.appendChild(iconApple);
+
+    const iconShortcut = document.createElement('link');
+    iconShortcut.rel = 'shortcut icon';
+    iconShortcut.href = '/favicon.ico';
+    document.head.appendChild(iconShortcut);
+  }
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.content = page.desc;
 
