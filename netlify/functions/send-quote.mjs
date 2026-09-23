@@ -67,7 +67,7 @@ export default async (request) => {
 
   try {
     await transporter.sendMail({
-      from: `Skylink Website <${process.env.SMTP_USER}>`,
+      from: `Skylink Corridors Website <${process.env.SMTP_USER}>`,
       to: process.env.QUOTE_RECIPIENT,
       replyTo: email,
       subject: `New Quote Request - ${company}`,

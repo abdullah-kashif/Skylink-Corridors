@@ -66,6 +66,8 @@ const quoteForm = document.querySelector('#quote-form');
 if (quoteForm) {
   quoteForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (quoteForm.dataset.submitting === 'true') return;
+    quoteForm.dataset.submitting = 'true';
     const status = quoteForm.querySelector('.form-status');
     const button = quoteForm.querySelector('.send-request');
     const originalButtonText = button.innerHTML;
@@ -91,6 +93,7 @@ if (quoteForm) {
       status.classList.add('error');
       status.textContent = error.message || 'Your request could not be sent. Please try again.';
     } finally {
+      quoteForm.dataset.submitting = 'false';
       button.disabled = false;
       button.innerHTML = originalButtonText;
     }
