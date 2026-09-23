@@ -302,9 +302,115 @@ if (servicesSlider && sliderPrev && sliderNext) {
     visible = true;
   }
   window.addEventListener('resize', rebuild);
-  window.addEventListener('load', rebuild);
   rebuild();
   schedule();
+}
+
+// Clientele logo carousel: the full asset set is duplicated for a seamless loop.
+const clienteleTrack = document.querySelector('#clientele-track');
+const clienteleWindow = document.querySelector('.clientele-window');
+const clienteleDots = document.querySelector('#clientele-dots');
+
+if (clienteleTrack && clienteleWindow && clienteleDots) {
+  const logoFiles = Array.from({ length: 64 }, (_, index) => `logo-${String(index + 2).padStart(2, '0')}.jpg`);
+  const cards = [...logoFiles, ...logoFiles].map((file, index) => {
+    const card = document.createElement('div');
+    card.className = 'clientele-card';
+    card.tabIndex = index < logoFiles.length ? 0 : -1;
+    card.setAttribute('aria-label', `Client logo ${index % logoFiles.length + 1}`);
+    const image = document.createElement('img');
+    image.src = `/assets/Clientele/${file}`;
+    image.alt = '';
+    image.loading = index < 8 ? 'eager' : 'lazy';
+    card.appendChild(image);
+    return card;
+  });
+  clienteleTrack.replaceChildren(...cards);
+
+  const clienteleReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let offset = 0;
+  let loopWidth = 0;
+  let frame;
+  let paused = clienteleReduceMotion;
+  let visible = true;
+  let dragging = false;
+  let dragStart = 0;
+  let dragOffset = 0;
+  const speed = 0.38;
+  const dotCount = 8;
+
+  const render = () => {
+    if (loopWidth > 0) {
+      if (offset >= loopWidth) offset -= loopWidth;
+      if (offset < 0) offset += loopWidth;
+    }
+    clienteleTrack.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    if (loopWidth) {
+      const activeDot = Math.min(dotCount - 1, Math.floor((offset / loopWidth) * dotCount));
+      [...clienteleDots.children].forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeDot);
+        dot.setAttribute('aria-current', String(index === activeDot));
+      });
+    }
+  };
+  const animate = () => {
+    if (!paused && !dragging && visible && !document.hidden) offset += speed;
+    render();
+    frame = requestAnimationFrame(animate);
+  };
+  const rebuild = () => {
+    loopWidth = clienteleTrack.scrollWidth / 2;
+    render();
+  };
+  for (let index = 0; index < dotCount; index += 1) {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = `clientele-dot${index === 0 ? ' active' : ''}`;
+    dot.setAttribute('aria-label', `Show clientele logos ${index + 1}`);
+    dot.setAttribute('aria-controls', 'clientele-track');
+    dot.setAttribute('aria-current', String(index === 0));
+    dot.addEventListener('click', () => {
+      offset = loopWidth * (index / dotCount);
+      render();
+    });
+    clienteleDots.appendChild(dot);
+  }
+  clienteleWindow.addEventListener('mouseenter', () => { paused = true; });
+  clienteleWindow.addEventListener('mouseleave', () => { paused = clienteleReduceMotion; });
+  clienteleWindow.addEventListener('focusin', () => { paused = true; });
+  clienteleWindow.addEventListener('focusout', event => {
+    if (!clienteleWindow.contains(event.relatedTarget)) paused = clienteleReduceMotion;
+  });
+  clienteleWindow.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      const card = clienteleTrack.querySelector('.clientele-card');
+      const step = card ? card.getBoundingClientRect().width + 16 : 188;
+      offset += (event.key === 'ArrowRight' ? 1 : -1) * step;
+      render();
+    }
+  });
+  clienteleWindow.addEventListener('pointerdown', event => {
+    dragging = true;
+    paused = true;
+    dragStart = event.clientX;
+    dragOffset = offset;
+    clienteleWindow.setPointerCapture?.(event.pointerId);
+  });
+  clienteleWindow.addEventListener('pointermove', event => {
+    if (dragging) { offset = dragOffset - (event.clientX - dragStart); render(); }
+  });
+  clienteleWindow.addEventListener('pointerup', () => { dragging = false; paused = clienteleReduceMotion; });
+  clienteleWindow.addEventListener('pointercancel', () => { dragging = false; paused = clienteleReduceMotion; });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) paused = clienteleReduceMotion; });
+  window.addEventListener('resize', rebuild);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; }, { threshold: 0.1 }).observe(clienteleWindow);
+  }
+  rebuild();
+  window.addEventListener('load', rebuild);
+  clienteleTrack.querySelectorAll('img').forEach(image => image.addEventListener('load', rebuild, { once: true }));
+  frame = requestAnimationFrame(animate);
 }
 
 // Hero background video smooth autoplay initialization
@@ -334,4 +440,3 @@ if (heroVideo) {
     });
   }
 }
-
