@@ -820,6 +820,12 @@ video.hero-bg,
   overflow: hidden;
   margin: 0 -10px;
   padding: 10px;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.clientele-window:active {
+  cursor: grabbing;
 }
 
 .clientele-window::before,
@@ -849,6 +855,7 @@ video.hero-bg,
   display: grid;
   place-items: center;
   padding: 15px;
+  overflow: hidden;
   background: #fff;
   border: 1px solid #e3e7e2;
   border-radius: 10px;
@@ -864,8 +871,10 @@ video.hero-bg,
 }
 
 .clientele-card img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 92px;
   object-fit: contain;
   border-radius: 5px;
 }
@@ -910,6 +919,7 @@ video.hero-bg,
 @media (max-width: 700px) {
   .clientele-head { align-items: flex-start; flex-direction: column; }
   .clientele-card { width: 145px; height: 105px; }
+  .clientele-card img { max-height: 75px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
